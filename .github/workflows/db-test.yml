@@ -1,0 +1,23 @@
+name: Run a notebook in databricks
+
+on:
+ push:
+
+jobs:
+ run-databricks-notebook:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout repo
+       uses: actions/checkout@v2
+     - name: Run a databricks notebook
+       uses: databricks/run-notebook@v0
+       with:
+         local-notebook-path: /Workspace/Users/shashi.kamle99@gmail.com/jobs/job.py
+         DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+         DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+         new-cluster-json: >
+           {
+             "num_workers": 1,
+             "spark_version": "10.4.x-scala2.12",
+             "node_type_id": "m6i.large"
+           }
