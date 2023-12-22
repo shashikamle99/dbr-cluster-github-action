@@ -18,10 +18,9 @@ jobs:
      - name: Run a databricks notebook
        uses: databricks/run-notebook@v0
        with:
-         local-notebook-path: path/to/my/databricks_notebook.py
+         local-notebook-path: ./job.py
          databricks-host: https://dbc-4e21cf28-ef36.cloud.databricks.com
          databricks-token: ${{ secrets.DATABRICKS_TOKEN }}
-         git-commit: ${{ github.event.pull_request.head.sha }}
          new-cluster-json: >
            {
              "num_workers": 1,
