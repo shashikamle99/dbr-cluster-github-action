@@ -13,8 +13,8 @@ jobs:
        uses: databricks/run-notebook@v0
        with:
          local-notebook-path: ./job.py
-         DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
-         DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+         DATABRICKS_HOST: https://dbc-4e21cf28-ef36.cloud.databricks.com
+         DATABRICKS_TOKEN: dapib1be7a2c69992a23384ea7d30c2b955f
          new-cluster-json: >
            {
              "num_workers": 1,
