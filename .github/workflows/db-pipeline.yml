@@ -1,7 +1,7 @@
 name: Run a notebook in databricks on PRs
 
 on:
- pull_request:
+ push:
 
 jobs:
  run-databricks-notebook:
@@ -9,6 +9,12 @@ jobs:
    steps:
      - name: Checkout repo
        uses: actions/checkout@v2
+     - name: Install databricks CLI
+       run: |
+         curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh  
+
+     - name: Databricks CLI version
+       run: databricks --version
      - name: Run a databricks notebook
        uses: databricks/run-notebook@v0
        with:
@@ -20,5 +26,5 @@ jobs:
            {
              "num_workers": 1,
              "spark_version": "10.4.x-scala2.12",
-             "node_type_id": "Standard_D3_v2"
+             "node_type_id": "m6i.large"
            }
