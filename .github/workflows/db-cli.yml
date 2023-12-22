@@ -25,6 +25,9 @@ jobs:
         run: databricks jobs list
 
       - name: Run a databricks notebook
+        env:
+          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         uses: databricks/run-notebook@v0.0.3
         with:
           new-cluster-json: >
