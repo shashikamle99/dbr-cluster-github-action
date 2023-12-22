@@ -1,5 +1,8 @@
 name: databricks-cicd
 
+on:
+ push:
+
 jobs:
   main:
     runs-on: ubuntu-latest
