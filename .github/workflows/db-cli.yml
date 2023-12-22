@@ -30,7 +30,7 @@ jobs:
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         uses: databricks/run-notebook@v0.0.3
         with:
-          local-notebook-path: ./job.py
+          local-notebook-path: ../.job.py
           new-cluster-json: >
            {
              "num_workers": 1,
