@@ -23,4 +23,16 @@ jobs:
           JOB_NAME: 'my-job'
           WAIT_TIMEOUT: '10m0s'
         run: databricks jobs list
+
+      - name: Run a databricks notebook
+        uses: databricks/run-notebook@v0.0.3
+        with:
+          new-cluster-json: >
+           {
+             "num_workers": 1,
+             "spark_version": "10.4.x-scala2.12",
+             "node_type_id": "m6i.large"
+           }
+
+        
       
