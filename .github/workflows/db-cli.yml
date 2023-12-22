@@ -15,6 +15,6 @@ jobs:
          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh  
 
       - name: Check DB CLI version
-        run: sh "databricks --version"
+        run: databricks --version
 
       
